@@ -31,10 +31,9 @@
   --maxw: 1180px;
   --reveal-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  /* Motif isométrique : un cube axonométrique (3 faces) tuilé.
-     top: wheat très léger / left: leaf léger / right: transparent.
-     stroke leaf, opacity globale gérée via le fill alpha. */
-  --iso-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='70' viewBox='0 0 80 70'%3E%3Cg fill='none' stroke='%233D6B4F' stroke-width='0.7'%3E%3Cpolygon points='40,8 60,20 40,32 20,20' fill='%23D4A853' fill-opacity='0.02'/%3E%3Cpolygon points='20,20 40,32 40,55 20,43' fill='%233D6B4F' fill-opacity='0.01'/%3E%3Cpolygon points='40,32 60,20 60,43 40,55' fill='none'/%3E%3Cpolygon points='0,43 20,55 0,67 -20,55' fill='%23D4A853' fill-opacity='0.02'/%3E%3Cpolygon points='80,43 100,55 80,67 60,55' fill='%23D4A853' fill-opacity='0.02'/%3E%3Cpolygon points='0,-27 20,-15 0,-3 -20,-15' fill='%23D4A853' fill-opacity='0.02'/%3E%3Cpolygon points='80,-27 100,-15 80,-3 60,-15' fill='%23D4A853' fill-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
+  /* Motif botanique : un brin de feuillage fin, tuilé et très discret.
+     stroke leaf uniquement, opacity basse — élégant et aéré. */
+  --leaf-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%233D6B4F' stroke-width='1.1' stroke-opacity='0.07' stroke-linecap='round'%3E%3Cpath d='M22 130 C 52 104 80 80 130 32'/%3E%3Cellipse cx='44' cy='104' rx='9' ry='4.3' transform='rotate(-42 44 104)'/%3E%3Cellipse cx='65' cy='84' rx='9' ry='4.3' transform='rotate(-42 65 84)'/%3E%3Cellipse cx='88' cy='62' rx='9' ry='4.3' transform='rotate(-42 88 62)'/%3E%3Cellipse cx='110' cy='44' rx='9' ry='4.3' transform='rotate(-42 110 44)'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* ===== RESET & BASE ===== */
@@ -161,7 +160,7 @@ section{padding:96px 0;position:relative;}
   background-position:center right;
   background-repeat:no-repeat;
 }
-/* Voile dégradé blanc (gauche net → droite transparente) + motif iso très discret */
+/* Voile dégradé blanc (gauche net → droite transparente) + motif botanique discret */
 .hero::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background-image:
@@ -171,8 +170,8 @@ section{padding:96px 0;position:relative;}
       rgba(253,252,250,0.94) 44%,
       rgba(253,252,250,0.55) 64%,
       rgba(253,252,250,0.28) 100%),
-    var(--iso-pattern);
-  background-size:cover, 80px 70px;
+    var(--leaf-pattern);
+  background-size:cover, 150px 150px;
 }
 .hero .wrap{position:relative;z-index:2;}
 .hero-eyebrow{font-size:11px;letter-spacing:0.2em;}
@@ -197,7 +196,7 @@ section{padding:96px 0;position:relative;}
 }
 
 /* ===== SERVICES ===== */
-.services{background:var(--mist);background-image:var(--iso-pattern);background-size:80px 70px;}
+.services{background:var(--mist);background-image:var(--leaf-pattern);background-size:150px 150px;}
 .section-head{margin-bottom:48px;}
 .services-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
@@ -222,7 +221,7 @@ section{padding:96px 0;position:relative;}
 }
 .gallery-item{
   position:relative;border-radius:8px;overflow:hidden;background:var(--mist);
-  background-image:var(--iso-pattern);background-size:80px 70px;
+  background-image:var(--leaf-pattern);background-size:150px 150px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:20px;text-align:center;cursor:pointer;
 }
@@ -248,7 +247,7 @@ section{padding:96px 0;position:relative;}
 .projects-cta a:hover{opacity:0.7;}
 
 /* ===== TARIFS ===== */
-.pricing{background:var(--mist);background-image:var(--iso-pattern);background-size:80px 70px;}
+.pricing{background:var(--mist);background-image:var(--leaf-pattern);background-size:150px 150px;}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;margin-top:48px;}
 .price-card{
   background:var(--white);border-radius:10px;border:1px solid rgba(61,107,79,0.15);
@@ -298,7 +297,7 @@ section{padding:96px 0;position:relative;}
 }
 
 /* ===== TÉMOIGNAGES ===== */
-.testimonials{background:var(--mist);background-image:var(--iso-pattern);background-size:80px 70px;}
+.testimonials{background:var(--mist);background-image:var(--leaf-pattern);background-size:150px 150px;}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
 .testi-card{
   background:var(--white);border-radius:10px;border-left:3px solid var(--leaf);
@@ -374,7 +373,7 @@ section{padding:96px 0;position:relative;}
         rgba(253,252,250,0.97) 0%,
         rgba(253,252,250,0.9) 55%,
         rgba(253,252,250,0.7) 100%),
-      var(--iso-pattern);
+      var(--leaf-pattern);
   }
   .services-grid{grid-template-columns:1fr;}
   .bottom-row{grid-template-columns:1fr;max-width:none;}
